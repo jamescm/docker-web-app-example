@@ -1,0 +1,16 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --experimental-modules .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cory James <james.cory.m@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongo": "^0.1.0"
+  }
+}

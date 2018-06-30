@@ -1,21 +1,22 @@
 version: "3"
 services:
-  web:
-    image: node:9.11.1-alpine
-    ports:
-    - "8080:3000"
-    volumes:
-      - "./web:/srv/app"
-    environment:
-      - DATABASE_USERNAME
-      - DATABASE_PASSWORD
-    working_dir: /srv/app
-    entrypoint: node --experimental-modules .
-
   database:
-    image: mongo:3.0.15-wheezy
-    volumes:
-      - "./database:/data/db"
+    image: mysql:5.7.22
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ${DATABASE_USERNAME} 
-      MONGO_INITDB_ROOT_PASSWORD: ${DATABASE_PASSWORD}
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+      - MYSQL_DATABASE
+
+  web:
+    build: ./web
+    environment:
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+      - MYSQL_DATABASE
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./web:/srv/app
+      - /srv/app/node_modules
+    entrypoint: npm start

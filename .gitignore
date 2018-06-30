@@ -1,3 +1,2 @@
-database/
 web/node_modules/
-package-lock.json
+web/npm-shrinkwrap.json

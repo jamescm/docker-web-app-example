@@ -1,7 +1,6 @@
 const express = require('express')
 const Sequelize = require('sequelize')
 const { MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE } = process.env
-console.log(process.env)
 const sequelize = new Sequelize(MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, {
   host: 'database', // We're using the container name as a host name
   dialect: 'mysql'

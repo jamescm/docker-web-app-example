@@ -16,8 +16,8 @@ services:
     env_file:
       - database.env
     volumes:
-      - ./web:/srv/app/chat
-      - /srv/app/chat/node_modules
+      - ./web:/srv/app
+      - /srv/app/node_modules
     entrypoint: node .
 
 volumes:
